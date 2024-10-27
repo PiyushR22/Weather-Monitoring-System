@@ -1,0 +1,223 @@
+/* Global styles */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to right,
+    #e0f7fa,
+    #80deea
+  ); /* Gradient background */
+  color: #333; /* Dark text color for better readability */
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height for vertical centering */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Column layout for mobile */
+}
+
+body.dark-theme {
+  background: #333; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+}
+
+/* Main title */
+h1 {
+  text-align: center;
+  margin-bottom: 20px; /* Reduced space below title */
+  color: #00796b; /* Teal color for the main title */
+  font-size: 2.5rem; /* Adjusted font size for mobile */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+}
+
+body.dark-theme h1 {
+  color: #e0e0e0; /* Light color for main title in dark theme */
+}
+
+/* Weather card container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three cards in a row */
+  gap: 10px; /* Reduced space between cards */
+  max-width: 1200px; /* Max width for desktop view */
+  width: 100%; /* Full width for responsiveness */
+  margin: 0 auto; /* Center the grid container */
+  padding: 0 20px; /* Side padding for cards */
+}
+
+/* Weather card styles */
+.weather-card {
+  background: white; /* White background for each weather info card */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  padding: 15px; /* Padding inside the card */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+  text-align: center; /* Center text alignment */
+  position: relative; /* Position relative for pseudo-element */
+}
+
+body.dark-theme .weather-card {
+  background: #444; /* Dark card background */
+  color: #e0e0e0; /* Light text color in dark theme */
+}
+
+/* Card background decoration */
+.weather-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 150, 136, 0.1); /* Light teal overlay */
+  border-radius: 12px;
+  z-index: 0; /* Behind card content */
+}
+
+body.dark-theme .weather-card::before {
+  background: rgba(0, 150, 136, 0.2); /* Darker overlay in dark theme */
+}
+
+/* Content inside the card */
+.weather-card h2 {
+  font-size: 1.5rem; /* Font size for city names */
+  color: #004d40; /* Darker teal color for city names */
+  margin-bottom: 10px;
+  position: relative; /* Position relative to overlay */
+  z-index: 1; /* Bring text above overlay */
+}
+
+body.dark-theme .weather-card h2 {
+  color: #e0e0e0; /* Light color for city names in dark theme */
+}
+
+.weather-card p {
+  font-size: 0.9rem; /* Slightly smaller font size for temperature and date */
+  margin: 5px 0;
+  color: #555; /* Slightly lighter color for other text */
+  position: relative; /* Position relative to overlay */
+  z-index: 1; /* Bring text above overlay */
+}
+
+body.dark-theme .weather-card p {
+  color: #ccc; /* Lighter text for other content in dark theme */
+}
+
+/* Hover effect for cards */
+.weather-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* Deeper shadow on hover */
+}
+
+/* Toggle button styles */
+.toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #00796b; /* Teal color for the button */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Circular shape */
+  width: 40px; /* Button width */
+  height: 40px; /* Button height */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+/* Dark theme button */
+body.dark-theme .toggle-button {
+  background-color: #555; /* Dark button color */
+}
+
+/* Alerts section */
+.alerts {
+  margin-top: 20px; /* Reduced space above alerts */
+  text-align: center; /* Center text alignment */
+}
+
+/* Summary chart styles */
+.summary-chart {
+  margin-top: 20px; /* Reduced space above chart */
+}
+
+/* Dark theme for alerts */
+body.dark-theme .alerts {
+  background-color: #333; /* Dark background */
+  color: #fff; /* Light text color */
+  border: 1px solid #444; /* Border color */
+  padding: 15px; /* Add some padding */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Dark theme for summary chart */
+body.dark-theme .summary-chart {
+  background-color: #222; /* Darker background */
+  color: #fff; /* Light text color */
+  padding: 15px; /* Add padding */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+/* Optional: Chart elements */
+body.dark-theme .summary-chart canvas {
+  background-color: #333; /* Background for the chart itself */
+  color: #fff;
+}
+
+/* Chart tooltip styles */
+body.dark-theme .summary-chart .tooltip {
+  background-color: #333; /* Dark tooltip background */
+  color: #fff; /* White text color for tooltip */
+  border: 1px solid #444; /* Dark border for tooltip */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem; /* Adjust title font size for medium screens */
+  }
+
+  .card-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Two cards in a row on medium screens */
+  }
+
+  .weather-card {
+    padding: 10px; /* Less padding on smaller screens */
+  }
+
+  .toggle-button {
+    width: 35px; /* Smaller button width */
+    height: 35px; /* Smaller button height */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem; /* Smaller title font size for small screens */
+  }
+
+  .card-container {
+    grid-template-columns: 1fr; /* One card in a row on small screens */
+  }
+
+  .weather-card {
+    padding: 8px; /* Further reduce padding on small screens */
+  }
+
+  .toggle-button {
+    width: 30px; /* Even smaller button width */
+    height: 30px; /* Even smaller button height */
+  }
+
+  .alerts,
+  .summary-chart {
+    margin-top: 10px; /* Adjust margins for small screens */
+    padding: 10px; /* Less padding for small screens */
+  }
+}
